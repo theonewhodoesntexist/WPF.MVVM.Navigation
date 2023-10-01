@@ -9,12 +9,12 @@ namespace WPF.MVVM.Navigation.ViewModels
         #endregion
 
         #region Helper methods
-        public void OnPropertyChanged(string propertyName = null)
+        protected void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void Dispose() { }
+        protected virtual void Dispose() { }
         #endregion
     }
 }

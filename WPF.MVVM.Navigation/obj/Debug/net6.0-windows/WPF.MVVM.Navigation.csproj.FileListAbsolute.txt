@@ -22,3 +22,4 @@ C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\WPF.MVVM.Navigation.pdb
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\WPF.MVVM.Navigation.genruntimeconfig.cache
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\ref\WPF.MVVM.Navigation.dll
+C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

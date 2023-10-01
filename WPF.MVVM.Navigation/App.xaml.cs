@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using WPF.MVVM.Navigation.Stores;
+using WPF.MVVM.Navigation.ViewModels;
 
 namespace WPF.MVVM.Navigation
 {
@@ -13,10 +9,26 @@ namespace WPF.MVVM.Navigation
     /// </summary>
     public partial class App : Application
     {
+        #region Fields
+        private readonly NavigationStore _navigationStore;
+        #endregion
+
+        #region Constructor
+        public App()
+        {
+            _navigationStore = new NavigationStore();
+        }
+        #endregion
+
         #region Startup configurations
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            MainWindow = new MainWindow();
+            _navigationStore.CurrentViewModel = new HomeViewModel(_navigationStore);
+
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel(_navigationStore)
+            };
             MainWindow.Show();
         }
         #endregion
