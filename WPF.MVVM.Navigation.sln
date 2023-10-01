@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.MVVM.Navigation", "WPF.MVVM.Navigation\WPF.MVVM.Navigation.csproj", "{B6DEC7E9-EB30-481D-A8EB-1B59E7257CAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6DEC7E9-EB30-481D-A8EB-1B59E7257CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DEC7E9-EB30-481D-A8EB-1B59E7257CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DEC7E9-EB30-481D-A8EB-1B59E7257CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DEC7E9-EB30-481D-A8EB-1B59E7257CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {134132C3-C0D7-4171-AA04-8C76FC1F48CB}
+	EndGlobalSection
+EndGlobal
