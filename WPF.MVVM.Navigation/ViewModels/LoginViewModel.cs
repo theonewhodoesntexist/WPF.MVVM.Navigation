@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using WPF.MVVM.Navigation.Commands;
+using WPF.MVVM.Navigation.Models;
 using WPF.MVVM.Navigation.Services;
 using WPF.MVVM.Navigation.Stores;
 
@@ -40,7 +41,9 @@ namespace WPF.MVVM.Navigation.ViewModels
         #region Constructor
         public LoginViewModel(NavigationStore navigationStore)
         {
-			LoginCommand = new LoginCommand(this, new NavigationService<AccountViewModel>(navigationStore, () => new AccountViewModel(navigationStore)));
+			ParameterNavigationService<AccountModel, AccountViewModel> parameterNavigationService = new ParameterNavigationService<AccountModel, AccountViewModel>(navigationStore, (parameter) => new AccountViewModel(navigationStore, parameter));
+
+			LoginCommand = new LoginCommand(this, parameterNavigationService);
         }
         #endregion
     }
