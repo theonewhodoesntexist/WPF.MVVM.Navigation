@@ -30,8 +30,8 @@
                 Margin="0,20,0,0"
                 Padding="5,2"
                 HorizontalAlignment="Left"
-                Command="{Binding NavigateAccountCommand}"
-                Content="Account" />
+                Command="{Binding NavigateLoginCommand}"
+                Content="Start" />
         </WrapPanel>
     </Grid>
 </UserControl>

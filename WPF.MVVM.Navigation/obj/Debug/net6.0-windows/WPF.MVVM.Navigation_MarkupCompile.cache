@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\App.xaml
-3-2032611284
+4-1711713993
 
-121409574057
+16898162516
 194726069201
-MainWindow.xaml;Views\AccountView.xaml;Views\HomeView.xaml;
+MainWindow.xaml;Views\AccountView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;
 
 False
 
