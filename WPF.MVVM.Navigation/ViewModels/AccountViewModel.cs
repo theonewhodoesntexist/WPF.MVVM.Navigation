@@ -9,22 +9,22 @@ namespace WPF.MVVM.Navigation.ViewModels
     public class AccountViewModel : ViewModelBase
     {
         #region Fields
-        private readonly NavigationStore _navigationStore;
         private readonly AccountStore _accountStore;
         #endregion
 
         #region Properties
         public string Username => _accountStore.CurrentAccount?.Username ?? "J99";
         public ICommand NavigateHomeCommand { get; }
+        public NavigationBarViewModel NavigationBarViewModel { get; }
         #endregion
 
         #region Constructor
-        public AccountViewModel(NavigationStore navigationStore, AccountStore accountStore)
+        public AccountViewModel(AccountStore accountStore, NavigationBarViewModel navigationBarViewModel, NavigationService<HomeViewModel> homeNavigationService)
         {
-            _navigationStore = navigationStore;
             _accountStore = accountStore;
+            NavigationBarViewModel = navigationBarViewModel;
 
-            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(_navigationStore, () => new HomeViewModel(_navigationStore, accountStore)));
+            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
         }
         #endregion
     }

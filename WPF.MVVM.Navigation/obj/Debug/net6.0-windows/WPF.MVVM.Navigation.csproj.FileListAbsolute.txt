@@ -25,3 +25,5 @@ C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\Views\LoginView.g.cs
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\Views\LoginView.baml
+C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\Components\NavigationBar.g.cs
+C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\Components\NavigationBar.baml

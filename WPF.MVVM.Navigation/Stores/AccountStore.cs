@@ -17,6 +17,8 @@ namespace WPF.MVVM.Navigation.Stores
                 _currentAccount = value;
 			}
 		}
+
+		public bool IsLoggedIn => CurrentAccount != null;
 		#endregion
 	}
 }
