@@ -10,12 +10,12 @@ namespace WPF.MVVM.Navigation.Commands
     {
         #region Fields
         private readonly LoginViewModel _loginViewModel;
-        private readonly NavigationService<AccountViewModel> _navigationService;
+        private readonly INavigationService<AccountViewModel> _navigationService;
         private readonly AccountStore _accountStore;
         #endregion
 
         #region Constructor
-        public LoginCommand(LoginViewModel loginViewModel, NavigationService<AccountViewModel> navigationService, AccountStore accountStore)
+        public LoginCommand(LoginViewModel loginViewModel, INavigationService<AccountViewModel> navigationService, AccountStore accountStore)
         {
             _loginViewModel = loginViewModel;
             _navigationService = navigationService;

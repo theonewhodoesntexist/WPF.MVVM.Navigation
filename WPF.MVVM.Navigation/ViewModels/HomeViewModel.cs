@@ -10,13 +10,10 @@ namespace WPF.MVVM.Navigation.ViewModels
         #region Properties
         public string WelcomeMessage => "Welcome to my application";
         public ICommand NavigateLoginCommand { get; }
-        public NavigationBarViewModel NavigationBarViewModel { get; }
         #endregion
 
-        public HomeViewModel(NavigationBarViewModel navigationBarViewModel, NavigationService<LoginViewModel> loginNavigationService)
+        public HomeViewModel(INavigationService<LoginViewModel> loginNavigationService)
         {
-            NavigationBarViewModel = navigationBarViewModel;
-
             NavigateLoginCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
         }
     }

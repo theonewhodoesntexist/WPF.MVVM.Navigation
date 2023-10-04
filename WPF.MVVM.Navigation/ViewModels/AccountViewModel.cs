@@ -15,14 +15,12 @@ namespace WPF.MVVM.Navigation.ViewModels
         #region Properties
         public string Username => _accountStore.CurrentAccount?.Username ?? "J99";
         public ICommand NavigateHomeCommand { get; }
-        public NavigationBarViewModel NavigationBarViewModel { get; }
         #endregion
 
         #region Constructor
-        public AccountViewModel(AccountStore accountStore, NavigationBarViewModel navigationBarViewModel, NavigationService<HomeViewModel> homeNavigationService)
+        public AccountViewModel(AccountStore accountStore, INavigationService<HomeViewModel> homeNavigationService)
         {
             _accountStore = accountStore;
-            NavigationBarViewModel = navigationBarViewModel;
 
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
         }

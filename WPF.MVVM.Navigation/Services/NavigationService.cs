@@ -4,8 +4,7 @@ using WPF.MVVM.Navigation.ViewModels;
 
 namespace WPF.MVVM.Navigation.Services
 {
-    public class NavigationService<TViewModel>
-        where TViewModel : ViewModelBase
+    public class NavigationService<TViewModel> : INavigationService<TViewModel> where TViewModel : ViewModelBase
     {
         #region Fields
         private readonly NavigationStore _navigationStore;

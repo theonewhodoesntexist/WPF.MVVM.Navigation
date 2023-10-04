@@ -19,7 +19,7 @@ namespace WPF.MVVM.Navigation.ViewModels
         #endregion
 
         #region Constructor
-        public NavigationBarViewModel(NavigationService<HomeViewModel> homeNavigationService, NavigationService<AccountViewModel> accountNavigationService, NavigationService<LoginViewModel> loginNavigationService, AccountStore accountStore)
+        public NavigationBarViewModel(INavigationService<HomeViewModel> homeNavigationService, INavigationService<AccountViewModel> accountNavigationService, INavigationService<LoginViewModel> loginNavigationService, AccountStore accountStore)
         {
             _accountStore = accountStore;
 

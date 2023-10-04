@@ -14,7 +14,6 @@ namespace WPF.MVVM.Navigation
         #region Fields
         private readonly NavigationStore _navigationStore;
         private readonly AccountStore _accountStore;
-        private readonly NavigationBarViewModel _navigationBarViewModel;
         #endregion
 
         #region Constructor
@@ -22,14 +21,13 @@ namespace WPF.MVVM.Navigation
         {
             _navigationStore = new NavigationStore();
             _accountStore = new AccountStore();
-            _navigationBarViewModel = new NavigationBarViewModel(CreateHomeNavigationService(), CreateAccountNavigationService(), CreateLoginNavigationService(), _accountStore);
         }
         #endregion
 
         #region Startup configurations
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            NavigationService<HomeViewModel> homeNavigationService = CreateHomeNavigationService();
+            INavigationService<HomeViewModel> homeNavigationService = CreateHomeNavigationService();
             homeNavigationService.Navigate();
 
             MainWindow = new MainWindow()
@@ -41,19 +39,24 @@ namespace WPF.MVVM.Navigation
         #endregion
 
         #region Helper methods
-        private NavigationService<HomeViewModel> CreateHomeNavigationService()
+        private INavigationService<HomeViewModel> CreateHomeNavigationService()
         {
-            return new NavigationService<HomeViewModel>(_navigationStore, () => new HomeViewModel(_navigationBarViewModel, CreateLoginNavigationService()));
+            return new LayoutNavigationService<HomeViewModel>(_navigationStore, () => new HomeViewModel(CreateLoginNavigationService()), CreateNavigationBarViewModel);
         }
 
-        private NavigationService<AccountViewModel> CreateAccountNavigationService()
+        private INavigationService<AccountViewModel> CreateAccountNavigationService()
         {
-            return new NavigationService<AccountViewModel>(_navigationStore, () => new AccountViewModel(_accountStore, _navigationBarViewModel, CreateHomeNavigationService()));
+            return new LayoutNavigationService<AccountViewModel>(_navigationStore, () => new AccountViewModel(_accountStore, CreateHomeNavigationService()), CreateNavigationBarViewModel);
         }
 
-        private NavigationService<LoginViewModel> CreateLoginNavigationService()
+        private INavigationService<LoginViewModel> CreateLoginNavigationService()
         {
             return new NavigationService<LoginViewModel>(_navigationStore, () => new LoginViewModel(_accountStore, CreateAccountNavigationService()));
+        }
+
+        private NavigationBarViewModel CreateNavigationBarViewModel()
+        {
+            return new NavigationBarViewModel(CreateHomeNavigationService(), CreateAccountNavigationService(), CreateLoginNavigationService(), _accountStore);
         }
         #endregion
     }
