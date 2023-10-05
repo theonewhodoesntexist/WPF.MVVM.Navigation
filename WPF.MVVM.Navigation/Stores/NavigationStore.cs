@@ -15,6 +15,7 @@ namespace WPF.MVVM.Navigation.Stores
 			}
 			set
 			{
+				_currentViewModel?.Dispose();
                 _currentViewModel = value;
 				CurrentViewModelChanged?.Invoke();
             }

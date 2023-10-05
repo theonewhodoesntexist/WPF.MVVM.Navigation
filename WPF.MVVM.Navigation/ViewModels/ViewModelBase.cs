@@ -14,7 +14,7 @@ namespace WPF.MVVM.Navigation.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected virtual void Dispose() { }
+        public virtual void Dispose() { }
         #endregion
     }
 }

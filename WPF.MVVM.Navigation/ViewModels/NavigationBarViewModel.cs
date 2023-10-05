@@ -16,6 +16,7 @@ namespace WPF.MVVM.Navigation.ViewModels
         public ICommand NavigateAccountCommand { get; }
         public ICommand NavigateLoginCommand { get; }
         public bool IsLoggedIn => _accountStore.IsLoggedIn;
+        public ICommand LogoutCommand { get; }
         #endregion
 
         #region Constructor
@@ -26,6 +27,25 @@ namespace WPF.MVVM.Navigation.ViewModels
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
             NavigateAccountCommand = new NavigateCommand<AccountViewModel>(accountNavigationService);
             NavigateLoginCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
+            LogoutCommand = new LogoutCommand(_accountStore);
+
+            _accountStore.CurrentAccountChanged += AccountStore_CurrentAccountChanged;
+        }
+
+        #region CurrentAccountChanged Subscribed
+        private void AccountStore_CurrentAccountChanged()
+        {
+            OnPropertyChanged(nameof(IsLoggedIn));
+        }
+        #endregion
+        #endregion
+
+        #region Dispose
+        public override void Dispose()
+        {
+            _accountStore.CurrentAccountChanged -= AccountStore_CurrentAccountChanged;
+
+            base.Dispose();
         }
         #endregion
     }

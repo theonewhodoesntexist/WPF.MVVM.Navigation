@@ -1,4 +1,5 @@
-﻿using WPF.MVVM.Navigation.Models;
+﻿using System;
+using WPF.MVVM.Navigation.Models;
 
 namespace WPF.MVVM.Navigation.Stores
 {
@@ -15,10 +16,22 @@ namespace WPF.MVVM.Navigation.Stores
 			set
 			{
                 _currentAccount = value;
-			}
+				CurrentAccountChanged?.Invoke();
+            }
 		}
 
 		public bool IsLoggedIn => CurrentAccount != null;
 		#endregion
-	}
+
+		#region Events
+		public event Action CurrentAccountChanged;
+        #endregion
+
+        #region Helper methods
+        public void Logout()
+		{
+			CurrentAccount = null;
+		}
+        #endregion
+    }
 }

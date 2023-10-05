@@ -15,5 +15,14 @@
         }
         #endregion
 
+        #region Dispose
+        public override void Dispose()
+        {
+            NavigationBarViewModel.Dispose();
+            ContentViewModel.Dispose();
+
+            base.Dispose();
+        }
+        #endregion
     }
 }

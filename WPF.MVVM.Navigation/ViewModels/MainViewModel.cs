@@ -26,15 +26,6 @@ namespace WPF.MVVM.Navigation.ViewModels
             OnPropertyChanged(nameof(CurrentViewModel));
         }
         #endregion
-
-        #region Unsubscribed
-        protected override void Dispose()
-        {
-            _navigationStore.CurrentViewModelChanged -= NavigationStore_CurrentViewModelChanged;
-
-            base.Dispose();
-        }
-        #endregion
         #endregion
     }
 }

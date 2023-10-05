@@ -23,6 +23,24 @@ namespace WPF.MVVM.Navigation.ViewModels
             _accountStore = accountStore;
 
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
+
+            _accountStore.CurrentAccountChanged += AccountStore_CurrentAccountChanged;
+        }
+
+        #region CurrentAccountChanged Subscribed
+        private void AccountStore_CurrentAccountChanged()
+        {
+            OnPropertyChanged(nameof(Username));
+        }
+        #endregion
+        #endregion
+
+        #region Dispose
+        public override void Dispose()
+        {
+            _accountStore.CurrentAccountChanged -= AccountStore_CurrentAccountChanged;
+
+            base.Dispose();
         }
         #endregion
     }
