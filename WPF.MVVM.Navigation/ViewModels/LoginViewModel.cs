@@ -38,7 +38,7 @@ namespace WPF.MVVM.Navigation.ViewModels
         #endregion
 
         #region Constructor
-        public LoginViewModel(AccountStore accountStore, INavigationService<AccountViewModel> accountNavigationService)
+        public LoginViewModel(AccountStore accountStore, INavigationService accountNavigationService)
         {
 			LoginCommand = new LoginCommand(this, accountNavigationService, accountStore);
         }

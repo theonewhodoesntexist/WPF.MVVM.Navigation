@@ -6,14 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPF.MVVM.Navigation"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:modalcontrol="clr-namespace:ModalControl;assembly=ModalControl"
     xmlns:viewmodels="clr-namespace:WPF.MVVM.Navigation.ViewModels"
     xmlns:views="clr-namespace:WPF.MVVM.Navigation.Views"
     Title="MainWindow"
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <ContentControl Content="{Binding CurrentViewModel}">
-        <ContentControl.Resources>
+    <Grid>
+        <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                 <views:HomeView />
             </DataTemplate>
@@ -26,6 +27,12 @@
             <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
                 <components:Layout />
             </DataTemplate>
-        </ContentControl.Resources>
-    </ContentControl>
+        </Grid.Resources>
+
+        <modalcontrol:Modal Panel.ZIndex="1" IsOpen="{Binding IsModalOpen}">
+            <ContentControl Content="{Binding CurrentModalViewModel}" />
+        </modalcontrol:Modal>
+
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
 </Window>

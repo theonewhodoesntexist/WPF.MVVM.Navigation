@@ -1,19 +1,15 @@
-﻿using System;
-using WPF.MVVM.Navigation.Services;
-using WPF.MVVM.Navigation.Stores;
-using WPF.MVVM.Navigation.ViewModels;
+﻿using WPF.MVVM.Navigation.Services;
 
 namespace WPF.MVVM.Navigation.Commands
 {
-    public class NavigateCommand<TViewModel> : CommandBase
-        where TViewModel : ViewModelBase
+    public class NavigateCommand : CommandBase
     {
         #region Fields
-        private readonly INavigationService<TViewModel> _navigationService;
+        private readonly INavigationService _navigationService;
         #endregion
 
         #region Constructor
-        public NavigateCommand(INavigationService<TViewModel> navigationService)
+        public NavigateCommand(INavigationService navigationService)
         {
             _navigationService = navigationService;
         }

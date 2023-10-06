@@ -12,9 +12,9 @@ namespace WPF.MVVM.Navigation.ViewModels
         public ICommand NavigateLoginCommand { get; }
         #endregion
 
-        public HomeViewModel(INavigationService<LoginViewModel> loginNavigationService)
+        public HomeViewModel(INavigationService loginNavigationService)
         {
-            NavigateLoginCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
+            NavigateLoginCommand = new NavigateCommand(loginNavigationService);
         }
     }
 }

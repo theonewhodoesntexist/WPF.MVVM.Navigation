@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "sM3mKtMfVoFR9d2DLxisUAnqMnlK7pd7zEwAcHBIyn6HVW2ODOmXwGHiw7gC6lPQ2HAFtM9Vdro59euNTH87xg==",
+  "dgSpecHash": "ExBhUu5Y9etxfBGW/8k1NHiCRp0rAjlXeCsRiwf6ilfaqmW4QozDtigZHi6qXfMXho2VXJkBSHJFeDiTrMHJgw==",
   "success": true,
   "projectFilePath": "C:\\Users\\realj\\OneDrive\\Documents\\Visual Studio Projects\\WPF.MVVM.Navigation\\WPF.MVVM.Navigation\\WPF.MVVM.Navigation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\realj\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
