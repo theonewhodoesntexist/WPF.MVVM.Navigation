@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ExBhUu5Y9etxfBGW/8k1NHiCRp0rAjlXeCsRiwf6ilfaqmW4QozDtigZHi6qXfMXho2VXJkBSHJFeDiTrMHJgw==",
+  "dgSpecHash": "TTCeL0alrA/Lhhn0tsOzXSL+nGu+Te7lvpAO/mb4ZPPvDtBjvgISBfPR67hOAysb3PEz3gJVmUd+Znzsva3eKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\realj\\OneDrive\\Documents\\Visual Studio Projects\\WPF.MVVM.Navigation\\WPF.MVVM.Navigation\\WPF.MVVM.Navigation.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\realj\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512"
+    "C:\\Users\\realj\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
+    "C:\\Users\\realj\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\realj\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512",
+    "C:\\Users\\realj\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

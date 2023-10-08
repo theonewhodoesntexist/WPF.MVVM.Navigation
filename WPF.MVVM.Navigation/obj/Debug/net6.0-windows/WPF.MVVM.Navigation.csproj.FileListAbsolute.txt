@@ -32,3 +32,5 @@ C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\bin\Debug\net6.0-windows\ModalControl.dll
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\WPF.MVVM.Navigation.csproj.AssemblyReference.cache
 C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\obj\Debug\net6.0-windows\WPF.MVVM.Navigation.csproj.CopyComplete
+C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\realj\OneDrive\Documents\Visual Studio Projects\WPF.MVVM.Navigation\WPF.MVVM.Navigation\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
