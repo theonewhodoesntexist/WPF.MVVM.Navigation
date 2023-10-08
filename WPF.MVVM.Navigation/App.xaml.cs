@@ -24,6 +24,7 @@ namespace WPF.MVVM.Navigation
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<AccountStore>();
             services.AddSingleton<ModalNavigationStore>();
+            services.AddSingleton<PeopleStore>();
 
             services.AddSingleton<INavigationService>(s => CreateHomeNavigationService(s));
             services.AddSingleton<CloseModalNavigationService>();
@@ -31,6 +32,8 @@ namespace WPF.MVVM.Navigation
             services.AddTransient<HomeViewModel>(s => new HomeViewModel(CreateLoginNavigationService(s)));
             services.AddTransient<AccountViewModel>(s => new AccountViewModel(s.GetRequiredService<AccountStore>(), CreateHomeNavigationService(s)));
             services.AddTransient<LoginViewModel>(CreateLoginViewModel);
+            services.AddTransient<PeopleListingViewModel>(s => new PeopleListingViewModel(CreateCreatePersonNavigationService(s), s.GetRequiredService<PeopleStore>()));
+            services.AddTransient<CreatePersonViewModel>(s => new CreatePersonViewModel(s.GetRequiredService<CloseModalNavigationService>(), s.GetRequiredService<PeopleStore>()));
             services.AddTransient<NavigationBarViewModel>(CreateNavigationBarViewModel);
 
             services.AddSingleton<MainViewModel>();
@@ -61,7 +64,10 @@ namespace WPF.MVVM.Navigation
             NavigationStore navigationStore = serviceProvider.GetRequiredService<NavigationStore>();
             HomeViewModel homeViewModel = serviceProvider.GetRequiredService<HomeViewModel>();
 
-            return new LayoutNavigationService<HomeViewModel>(navigationStore, () => homeViewModel, () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
+            return new LayoutNavigationService<HomeViewModel>(
+                navigationStore, 
+                () => homeViewModel, 
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
         private INavigationService CreateAccountNavigationService(IServiceProvider serviceProvider)
@@ -69,30 +75,57 @@ namespace WPF.MVVM.Navigation
             NavigationStore navigationStore = serviceProvider.GetRequiredService<NavigationStore>();
             AccountStore accountStore = serviceProvider.GetRequiredService<AccountStore>();
 
-            return new LayoutNavigationService<AccountViewModel>(navigationStore, () => serviceProvider.GetRequiredService<AccountViewModel>(), () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
+            return new LayoutNavigationService<AccountViewModel>(
+                navigationStore, 
+                () => serviceProvider.GetRequiredService<AccountViewModel>(), 
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
         private INavigationService CreateLoginNavigationService(IServiceProvider serviceProvider)
         {
-            ModalNavigationStore modalNavigationStore = serviceProvider.GetRequiredService<ModalNavigationStore>();
-
-            CompositeNavigationService compositeNavigationService = new CompositeNavigationService(new CloseModalNavigationService(modalNavigationStore), CreateAccountNavigationService(serviceProvider));
-
-            return new ModalNavigationService<LoginViewModel>(modalNavigationStore, () => serviceProvider.GetRequiredService<LoginViewModel>());
+            return new ModalNavigationService<LoginViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(), 
+                () => serviceProvider.GetRequiredService<LoginViewModel>());
         }
 
         private NavigationBarViewModel CreateNavigationBarViewModel(IServiceProvider serviceProvider)
         {
             AccountStore accountStore = serviceProvider.GetRequiredService<AccountStore>();
 
-            return new NavigationBarViewModel(CreateHomeNavigationService(serviceProvider), CreateAccountNavigationService(serviceProvider), CreateLoginNavigationService(serviceProvider), accountStore);
+            return new NavigationBarViewModel(
+                CreateHomeNavigationService(serviceProvider), 
+                CreateAccountNavigationService(serviceProvider), 
+                CreateLoginNavigationService(serviceProvider), 
+                accountStore,
+                CreatePeopleListingNavigationService(serviceProvider));
         }
 
         private LoginViewModel CreateLoginViewModel(IServiceProvider serviceProvider)
         {
-            CompositeNavigationService compositeNavigationService = new CompositeNavigationService(serviceProvider.GetRequiredService<CloseModalNavigationService>(), CreateAccountNavigationService(serviceProvider));
+            CompositeNavigationService compositeNavigationService = new CompositeNavigationService(
+                serviceProvider.GetRequiredService<CloseModalNavigationService>(), 
+                CreateAccountNavigationService(serviceProvider));
 
-            return new LoginViewModel(serviceProvider.GetRequiredService<AccountStore>(), compositeNavigationService);
+            return new LoginViewModel(
+                serviceProvider.GetRequiredService<AccountStore>(), 
+                compositeNavigationService);
+        }
+
+        private INavigationService CreatePeopleListingNavigationService(IServiceProvider serviceProvider)
+        {
+            NavigationStore navigationStore = serviceProvider.GetRequiredService<NavigationStore>();
+            AccountStore accountStore = serviceProvider.GetRequiredService<AccountStore>();
+
+            return new LayoutNavigationService<PeopleListingViewModel>(serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<PeopleListingViewModel>(),
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
+        }
+
+        private INavigationService CreateCreatePersonNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<CreatePersonViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<CreatePersonViewModel>());
         }
         #endregion
     }

@@ -16,10 +16,16 @@
     <Compile Update="Views\AccountView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\CreatePersonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PeopleListingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -36,10 +42,16 @@
     <Page Update="Views\AccountView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\CreatePersonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\HomeView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PeopleListingView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

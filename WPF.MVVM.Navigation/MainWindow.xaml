@@ -24,6 +24,12 @@
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <views:LoginView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:PeopleListingViewModel}">
+                <views:PeopleListingView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:CreatePersonViewModel}">
+                <views:CreatePersonView />
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
                 <components:Layout />
             </DataTemplate>
